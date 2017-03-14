@@ -1,0 +1,36 @@
+{% extends 'rango/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}About{% endblock %}
+
+{% block body_block %}
+    <div class="page-header">
+        <h1>About</h1>
+    </div>
+    <div>
+        <p><strong>This is introduce about test website</strong></p>
+
+
+        <form class="form-inline" role="form" type="get" action="/rango/about/" style="margin: 0">
+            <div class="form-group">
+                <input type="text" class="form-control" id="name" name="search_box" placeholder="Search...">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <p></p>
+        {#<form type="get" action="/rango/about/" style="margin: 0">#}
+        {#    <input  id="search_box" type="text" name="search_box"  placeholder="Search..." >#}
+        {#    <button id="search_submit" type="submit" >Submit</button>#}
+        {#</form>#}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                {% if user.is_authenticated %}
+                    <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango"/> <!-- New line -->
+                {% else %}
+                    nonono
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
